@@ -15,9 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@crypto/api": ["libs/api/src/index.ts"],
       "@crypto/features": ["libs/features/src/index.ts"],
-      "@crypto/models": ["libs/models/src/index.ts"],
       "@crypto/routes": ["libs/routes/src/index.ts"],
       "@crypto/styles": ["libs/styles/src/index.ts"],
       "@crypto/ui": ["libs/ui/src/index.ts"],

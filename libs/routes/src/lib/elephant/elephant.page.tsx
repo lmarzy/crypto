@@ -1,19 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import { useQuery } from 'react-query';
 
 import { Stampede, Stake } from '@crypto/features';
 import { Grid } from '@crypto/ui';
 import { Header, Nav } from './components';
-import { CoinPriceModel } from '@crypto/models';
-import { getCoinPrice } from '@crypto/api';
 
 export const ElephantPage = () => {
-  // const { data, isLoading } = useQuery<CoinPriceModel>('coinPriceSearch', () =>
-  //   getCoinPrice('0xdd325C38b12903B727D16961e61333f4871A70E0')
-  // );
-
-  // console.log(data);
-
   return (
     <>
       <Header />
