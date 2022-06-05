@@ -2,7 +2,14 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "api": "libs/api",
     "defi": "apps/defi",
-    "defi-e2e": "apps/defi-e2e"
+    "defi-e2e": "apps/defi-e2e",
+    "features": "libs/features",
+    "models": "libs/models",
+    "routes": "libs/routes",
+    "styles": "libs/styles",
+    "ui": "libs/ui",
+    "web-shell": "libs/web-shell"
   }
 }
