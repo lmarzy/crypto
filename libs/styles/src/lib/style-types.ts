@@ -10,7 +10,9 @@ export type ColorType =
   | 'greyMedium'
   | 'greyDark'
   | 'black'
-  | 'white';
+  | 'white'
+  | 'elephant'
+  | 'drip';
 
 export type HeightType = 'small' | 'medium' | 'large';
 

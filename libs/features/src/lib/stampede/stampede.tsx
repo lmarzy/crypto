@@ -1,11 +1,15 @@
 import { useState } from 'react';
 
-import { Box, Button, Field, Flex, Input, Heading, Text, Values } from '@crypto/ui';
+import { Box, Button, Field, Flex, Input, Heading, Text, Values, Grid } from '@crypto/ui';
 
-export const Stampede = () => {
+interface StampedeProps {
+  price: number;
+}
+
+export const Stampede = ({ price }: StampedeProps) => {
   const [principal, setPrincipal] = useState(0);
   const [term, setTerm] = useState(0);
-  const [trunkPrice, setTrunkPrice] = useState(0);
+  const [trunkPrice, setTrunkPrice] = useState(price);
   const [total, setTotal] = useState(0);
   const [interest, setInterest] = useState(0);
   const [totalAtPeg, setTotalAtPeg] = useState(0);
@@ -48,7 +52,7 @@ export const Stampede = () => {
       <Text size="small" mb={4}>
         205% APR - 672% APY - 0.56% Daily
       </Text>
-      <Box p={3} backgroundColor="greyLight" mb={4}>
+      <Box p={3} backgroundColor="greyLight">
         <form noValidate>
           <Box mb={4}>
             <Flex gap={2} isFullWidth>
@@ -63,7 +67,12 @@ export const Stampede = () => {
           <Box>
             <Flex gap={2} align="flex-end">
               <Field id="trunk-price" label="Trunk Price">
-                <Input id="trunk-price" onChange={(e) => setTrunkPrice(Number(e.target.value))} />
+                <Input
+                  type="number"
+                  id="trunk-price"
+                  value={trunkPrice}
+                  onChange={(e) => setTrunkPrice(Number(e.target.value))}
+                />
               </Field>
               <Button isFullWidth onClick={handleGetValue}>
                 Go!
@@ -75,7 +84,7 @@ export const Stampede = () => {
 
       {total > 0 && (
         <>
-          <Box mb={4}>
+          <Box mb={4} mt={4}>
             <Box as="section" backgroundColor="blue" p={4}>
               <Heading size="large" mb={2}>{`Total Amount Bonded after ${term} Days`}</Heading>
               <Flex>
@@ -90,26 +99,32 @@ export const Stampede = () => {
             </Box>
           </Box>
           <Box mb={2}>
-            <Flex gap={4}>
-              <Box backgroundColor="orange" p={2}>
-                <Heading size="large" mb={2}>
-                  Daily Return
-                </Heading>
-                <Values title1="Trunk" title2="$ Value" value1={dailyReturn} value2={dailyReturnAtPeg} />
-              </Box>
-              <Box backgroundColor="orange" p={2}>
-                <Heading size="large" mb={2}>
-                  Weekly Return
-                </Heading>
-                <Values title1="Trunk" title2="$ Value" value1={weeklyReturn} value2={weeklyReturnAtPeg} />
-              </Box>
-              <Box backgroundColor="orange" p={2}>
-                <Heading size="large" mb={2}>
-                  Monthly Return
-                </Heading>
-                <Values title1="Trunk" title2="$ Value" value1={monthlyReturn} value2={monthlyReturnAtPeg} />
-              </Box>
-            </Flex>
+            <Grid>
+              <Grid.Item span={12} bpMd={4}>
+                <Box backgroundColor="orange" p={2}>
+                  <Heading size="large" mb={2}>
+                    Daily Return
+                  </Heading>
+                  <Values title1="Trunk" title2="$ Value" value1={dailyReturn} value2={dailyReturnAtPeg} />
+                </Box>
+              </Grid.Item>
+              <Grid.Item span={12} bpMd={4}>
+                <Box backgroundColor="orange" p={2}>
+                  <Heading size="large" mb={2}>
+                    Weekly Return
+                  </Heading>
+                  <Values title1="Trunk" title2="$ Value" value1={weeklyReturn} value2={weeklyReturnAtPeg} />
+                </Box>
+              </Grid.Item>
+              <Grid.Item span={12} bpMd={4}>
+                <Box backgroundColor="orange" p={2}>
+                  <Heading size="large" mb={2}>
+                    Monthly Return
+                  </Heading>
+                  <Values title1="Trunk" title2="$ Value" value1={monthlyReturn} value2={monthlyReturnAtPeg} />
+                </Box>
+              </Grid.Item>
+            </Grid>
           </Box>
           <Text>{`After the term of ${term} days, it will take you approx ${Number(
             Math.round(principal / dailyReturn)

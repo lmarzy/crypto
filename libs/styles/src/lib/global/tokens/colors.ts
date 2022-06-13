@@ -13,4 +13,6 @@ export const colors = `
   --col-grey-dark: #747474;
   --col-black: #2F2F2F;
   --col-white: white;
+  --col-elephant: #EABC4E;
+  --col-drip: #007bff;
 `;

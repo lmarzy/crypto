@@ -8,6 +8,7 @@ interface StyledFlexProps {
   $align?: CSSProperties['alignItems'];
   $justify?: CSSProperties['justifyContent'];
   $gap?: SpacingType;
+  $wrap?: boolean;
   $isFullWidth?: boolean;
 }
 
@@ -30,6 +31,12 @@ export const StyledFlex = styled.div<StyledFlexProps>`
     $gap &&
     css`
       gap: ${theme.spacings[$gap]};
+    `};
+
+  ${({ $wrap }) =>
+    $wrap &&
+    css`
+      flex-wrap: wrap;
     `};
 
   ${({ $isFullWidth }) =>

@@ -9,6 +9,8 @@ export const theme = {
     greyDark: 'var(--col-grey-dark)',
     black: 'var(--col-black)',
     white: 'var(--col-white)',
+    elephant: 'var(--col-elephant)',
+    drip: 'var(--col-drip)',
   },
   fontSizes: {
     default: 'var(--size-default)',
