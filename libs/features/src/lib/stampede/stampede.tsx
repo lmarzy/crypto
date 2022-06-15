@@ -57,10 +57,10 @@ export const Stampede = ({ price }: StampedeProps) => {
           <Box mb={4}>
             <Flex gap={2} isFullWidth>
               <Field id="principal" label="Principal Amount ($)">
-                <Input id="principal" onChange={(e) => setPrincipal(Number(e.target.value))} />
+                <Input type="number" id="principal" onChange={(e) => setPrincipal(Number(e.target.value))} />
               </Field>
               <Field id="term" label="Term (in days)">
-                <Input id="term" onChange={(e) => setTerm(Number(e.target.value))} />
+                <Input type="number" id="term" onChange={(e) => setTerm(Number(e.target.value))} />
               </Field>
             </Flex>
           </Box>
@@ -88,11 +88,11 @@ export const Stampede = ({ price }: StampedeProps) => {
             <Box as="section" backgroundColor="blue" p={4}>
               <Heading size="large" mb={2}>{`Total Amount Bonded after ${term} Days`}</Heading>
               <Flex>
-                <Values title1="Trunk" title2="Interest" value1={total} value2={interest} />
+                <Values title1="Trunk" title2="$ Value" value1={total} value2={totalAtPeg} />
                 <Values
-                  title1="$ Value"
+                  title1="Interest"
                   title2="$ Interest"
-                  value1={totalAtPeg}
+                  value1={interest}
                   value2={Number((interest * trunkPrice).toFixed(2))}
                 />
               </Flex>

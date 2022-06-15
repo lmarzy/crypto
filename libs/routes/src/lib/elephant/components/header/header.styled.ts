@@ -19,7 +19,7 @@ export const StyledHeader = styled.header`
 export const StyledLogo = styled.div`
   width: 90px;
   transform: translateX(-25px) rotate(-90deg);
-  opacity: 0;
+  opacity: 0.2;
   animation: ${example} 2s forwards;
 `;
 
